@@ -9,19 +9,16 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.8/%{name}-%{version}.tar.
 # Source0-md5:	2005c5df2481f6d4f16d37a750989199
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.6.0
-BuildRequires:	ORBit2-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnutls-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	intltool
 BuildRequires:	libgcrypt-devel >= 1.1.90
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnomeui-devel >= 2.6.0
-BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	perl-base
-BuildRequires:	zlib-devel
+BuildRequires:	pkgconfig
 Requires(post):	GConf2 >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
