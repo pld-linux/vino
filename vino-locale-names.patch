@@ -1,0 +1,12 @@
+diff -urN aa/vino-2.7.90/configure.in vino-2.7.90/configure.in
+--- aa/vino-2.7.90/configure.in	2004-08-11 20:08:59.000000000 +0200
++++ vino-2.7.90/configure.in	2004-08-12 19:14:22.559688896 +0200
+@@ -20,7 +20,7 @@
+ AC_PATH_PROG(GCONFTOOL, gconftool-2)
+ AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
+ 
+-ALL_LINGUAS="bg bn cs en_CA en_GB es gu hu nl no pa pt pt_BR sq sr sr@Latn sv"
++ALL_LINGUAS="bg bn cs en_CA en_GB es gu hu nb nl pa pt pt_BR sq sr sr@Latn sv"
+ AM_GLIB_GNU_GETTEXT
+ 
+ GNOME_COMPILE_WARNINGS(yes)
