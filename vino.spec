@@ -14,7 +14,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 Buildrequires:	gnome-common >= 2.8.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	libgcrypt-devel >= 1.1.90
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnomeui-devel >= 2.6.0
