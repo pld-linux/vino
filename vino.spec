@@ -9,12 +9,14 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.7/%{name}-%{version}.tar.
 # Source0-md5:	359d5bc52be64bedb2d8af42bdff2f0c
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.6.0
+BuildRequires:	ORBit2-devel
 BuildRequires:	gnutls-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libgcrypt-devel >= 1.1.90
 BuildRequires:	libglade2-devel >= 2.3.6
 BuildRequires:	libgnomeui-devel >= 2.6.0
 BuildRequires:	libjpeg-devel
+BuildRequires:	perl-base
 BuildRequires:	zlib-devel
 Requires(post):	GConf2 >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,15 +42,13 @@ siê z dzia³aj±c± sesj± GNOME przy u¿yciu VNC.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/gnome/capplets
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#desktop-file-install --vendor gnome --delete-original                   \
-#  --dir $RPM_BUILD_ROOT%{_datadir}/control-center-2.0/capplets          \
-#  --add-only-show-in GNOME                                              \
-#  --add-category X-Red-Hat-Base                                         \
-#  $RPM_BUILD_ROOT%{_datadir}/control-center-2.0/capplets/vino-preferences.desktop
+mv $RPM_BUILD_ROOT%{_datadir}/control-center-2.0/capplets/*.desktop \
+	$RPM_BUILD_ROOT%{_datadir}/gnome/capplets
 
 # stuff we don't want
 rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome/vino/vino-client.*
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/vino-server
 %dir %{_datadir}/gnome/vino
 %{_datadir}/gnome/vino/*.glade
-%{_datadir}/control-center-2.0/capplets/*.desktop
+%{_datadir}/gnome/capplets/*.desktop
 %{_pixmapsdir}/*.png
 %{_libdir}/bonobo/servers/*.server
 %{_sysconfdir}/gconf/schemas/*.schemas
