@@ -1,25 +1,29 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.8.1
+Version:	2.9.2
 Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	2005c5df2481f6d4f16d37a750989199
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	c88e41e73f557b20af6bba00abe8d50d
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.6.0
+BuildRequires:	GConf2-devel >= 2.9.90
+BuildRequires:	ORBit2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.6.2
 BuildRequires:	intltool
 BuildRequires:	libgcrypt-devel >= 1.1.90
-BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnomeui-devel >= 2.6.0
+BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	libgnomeui-devel >= 2.9.1
+BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
+BuildRequires:	perl-base
 BuildRequires:	pkgconfig
-Requires(post):	GConf2 >= 2.6.0
+BuildRequires:	zlib-devel
+Requires(post):	GConf2 >= 2.9.90
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
@@ -46,13 +50,9 @@ siê z dzia³aj±c± sesj± GNOME przy u¿yciu VNC.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/gnome/capplets
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT%{_datadir}/control-center-2.0/capplets/*.desktop \
-	$RPM_BUILD_ROOT%{_datadir}/gnome/capplets
 
 # stuff we don't want
 rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome/vino/vino-client.*
@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/vino-server
 %dir %{_datadir}/gnome/vino
 %{_datadir}/gnome/vino/*.glade
-%{_datadir}/gnome/capplets/*.desktop
-%{_pixmapsdir}/*.png
+%{_desktopdir}/*.desktop
+%{_iconsdir}/*/*/apps/*.png
 %{_libdir}/bonobo/servers/*.server
 %{_sysconfdir}/gconf/schemas/*.schemas
