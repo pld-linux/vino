@@ -1,29 +1,29 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.9.2
+Version:	2.10.0
 Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	c88e41e73f557b20af6bba00abe8d50d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	a9b5c811807e01e7fb420f52820f0150
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.9.90
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.6.2
+BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	intltool
-BuildRequires:	libgcrypt-devel >= 1.1.90
-BuildRequires:	libglade2-devel >= 1:2.5.0
-BuildRequires:	libgnomeui-devel >= 2.9.1
+BuildRequires:	libgcrypt-devel >= 1.2.0
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeui-devel >= 2.10.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
-Requires(post):	GConf2 >= 2.9.90
+Requires(post):	GConf2 >= 2.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
