@@ -12,7 +12,7 @@ BuildRequires:	GConf2-devel >= 2.6.0
 BuildRequires:	ORBit2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-Buildrequires:	gnome-common >= 2.8.0
+BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnutls-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	libgcrypt-devel >= 1.1.90
