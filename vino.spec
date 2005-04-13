@@ -23,7 +23,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.196
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	zlib-devel
 Requires(post,preun):	GConf2 >= 2.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -68,12 +68,10 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install /etc/gconf/schemas/vino-server.schemas
+%gconf_schema_install vino-server.schemas
 
 %preun
-if [ $1 = 0 ]; then
-	%gconf_schema_install /etc/gconf/schemas/vino-server.schemas
-fi
+%gconf_schema_install vino-server.schemas
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
