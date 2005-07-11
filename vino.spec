@@ -2,7 +2,7 @@ Summary:	A remote desktop system for GNOME
 Summary(pl):	System zdalnego pulpitu dla GNOME
 Name:		vino
 Version:	2.10.0
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.10/%{name}-%{version}.tar.bz2
@@ -13,7 +13,7 @@ BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnutls-devel >= 1.0.0
+BuildRequires:	gnutls-devel >= 1.2.5
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	intltool
 BuildRequires:	libgcrypt-devel >= 1.2.0
