@@ -1,12 +1,12 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.11.90
-Release:	2
+Version:	2.11.92
+Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	78440fe650378c2d6b63ff7174558df3
+# Source0-md5:	58047c590714e983e2a3daafb3661c81
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.10.0
