@@ -1,20 +1,20 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.10.0
-Release:	4
+Version:	2.12.0
+Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	a9b5c811807e01e7fb420f52820f0150
+Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	eba0962a0e1b9f21719c5688d3d0728b
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnutls-devel >= 1.2.5
-BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	gnutls-devel >= 1.0.0
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libglade2-devel >= 1:2.5.1
@@ -84,4 +84,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_iconsdir}/*/*/apps/*.png
 %{_libdir}/bonobo/servers/*.server
-%{_sysconfdir}/gconf/schemas/*.schemas
+%{_sysconfdir}/gconf/schemas/vino-server.schemas
