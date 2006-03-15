@@ -1,25 +1,31 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.8.1
-Release:	1
-License:	GPL
+Version:	2.13.5
+Release:	2
+License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	2005c5df2481f6d4f16d37a750989199
+Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.13/%{name}-%{version}.tar.bz2
+# Source0-md5:	9bc8c3f0e639fdc7b9ed023501308359
+Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.6.0
+BuildRequires:	GConf2-devel >= 2.10.0
+BuildRequires:	ORBit2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool
-BuildRequires:	libgcrypt-devel >= 1.1.90
-BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnomeui-devel >= 2.6.0
+BuildRequires:	libgcrypt-devel >= 1.2.0
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
+BuildRequires:	perl-base
 BuildRequires:	pkgconfig
-Requires(post):	GConf2 >= 2.6.0
+BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	zlib-devel
+Requires(post,preun):	GConf2 >= 2.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
@@ -34,6 +40,7 @@ siê z dzia³aj±c± sesj± GNOME przy u¿yciu VNC.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -46,13 +53,9 @@ siê z dzia³aj±c± sesj± GNOME przy u¿yciu VNC.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/gnome/capplets
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT%{_datadir}/control-center-2.0/capplets/*.desktop \
-	$RPM_BUILD_ROOT%{_datadir}/gnome/capplets
 
 # stuff we don't want
 rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome/vino/vino-client.*
@@ -65,7 +68,10 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install
+%gconf_schema_install vino-server.schemas
+
+%preun
+%gconf_schema_install vino-server.schemas
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -75,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/vino-server
 %dir %{_datadir}/gnome/vino
 %{_datadir}/gnome/vino/*.glade
-%{_datadir}/gnome/capplets/*.desktop
-%{_pixmapsdir}/*.png
+%{_desktopdir}/*.desktop
+%{_iconsdir}/*/*/apps/*.png
 %{_libdir}/bonobo/servers/*.server
-%{_sysconfdir}/gconf/schemas/*.schemas
+%{_sysconfdir}/gconf/schemas/vino-server.schemas
