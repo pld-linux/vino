@@ -1,32 +1,32 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.13.5
-Release:	4
+Version:	2.16.0
+Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	9bc8c3f0e639fdc7b9ed023501308359
+Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.16/%{name}-%{version}.tar.bz2
+# Source0-md5:	89937e6d6cd8f658d037da0a7cfd3f4e
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	ORBit2-devel
+BuildRequires:	GConf2-devel >= 2.16.0
+BuildRequires:	ORBit2-devel >= 2.14.3
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.8.0
-BuildRequires:	intltool
+BuildRequires:	gtk+2-devel >= 2:2.10.6
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
-BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.14.0
+BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	zlib-devel
-Requires(post,preun):	GConf2 >= 2.14.0
-Requires:	libgnomeui >= 2.14.0
+Requires(post,preun):	GConf2 >= 2.16.0
+Requires:	libgnomeui >= 2.16.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
@@ -44,6 +44,7 @@ siê z dzia³aj±c± sesj± GNOME przy u¿yciu VNC.
 %patch0 -p1
 
 %build
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -62,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 # stuff we don't want
 rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome/vino/vino-client.*
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ug
 
 %find_lang %{name}
 
