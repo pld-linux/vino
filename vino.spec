@@ -63,8 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 # stuff we don't want
 rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome/vino/vino-client.*
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ug
-
 %find_lang %{name}
 
 %clean
