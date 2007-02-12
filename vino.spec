@@ -1,5 +1,5 @@
 Summary:	A remote desktop system for GNOME
-Summary(pl.UTF-8):   System zdalnego pulpitu dla GNOME
+Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
 Version:	2.16.0
 Release:	1
