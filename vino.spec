@@ -1,5 +1,5 @@
 Summary:	A remote desktop system for GNOME
-Summary(pl):	System zdalnego pulpitu dla GNOME
+Summary(pl.UTF-8):   System zdalnego pulpitu dla GNOME
 Name:		vino
 Version:	2.16.0
 Release:	1
@@ -35,9 +35,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Vino is a VNC server for GNOME. It allows remote users to connect to a
 running GNOME session using VNC.
 
-%description -l pl
-Vino to serwer VNC dla GNOME. Pozwala zdalnym u¿ytkownikom na ³±czenie
-siê z dzia³aj±c± sesj± GNOME przy u¿yciu VNC.
+%description -l pl.UTF-8
+Vino to serwer VNC dla GNOME. Pozwala zdalnym uÅ¼ytkownikom na Å‚Ä…czenie
+siÄ™ z dziaÅ‚ajÄ…cÄ… sesjÄ… GNOME przy uÅ¼yciu VNC.
 
 %prep
 %setup -q
