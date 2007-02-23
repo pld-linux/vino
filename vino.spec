@@ -10,7 +10,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.16/%{name}-%{version}.tar
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.16.0
-BuildRequires:	ORBit2-devel >= 2.14.3
+BuildRequires:	ORBit2-devel >= 1:2.14.3
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnutls-devel >= 1.0.0
@@ -23,9 +23,11 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	zlib-devel
 Requires(post,preun):	GConf2 >= 2.16.0
+Requires(post,postun):	gtk+2
+Requires(post,postun):	hicolor-icon-theme
 Requires:	libgnomeui >= 2.16.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,9 +72,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install vino-server.schemas
+%update_icon_cache hicolor
 
 %preun
 %gconf_schema_install vino-server.schemas
+
+%postun
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -83,6 +89,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/gnome/vino
 %{_datadir}/gnome/vino/*.glade
 %{_desktopdir}/*.desktop
-%{_iconsdir}/*/*/apps/*.png
+%{_iconsdir}/hicolor/*/apps/*.png
 %{_libdir}/bonobo/servers/*.server
 %{_sysconfdir}/gconf/schemas/vino-server.schemas
