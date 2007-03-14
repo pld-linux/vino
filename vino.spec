@@ -1,34 +1,35 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.16.0
+Version:	2.18.0
 Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	89937e6d6cd8f658d037da0a7cfd3f4e
-Patch0:		%{name}-desktop.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	8378156f78289c2f0d3bd5c483101a40
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.16.0
-BuildRequires:	ORBit2-devel >= 1:2.14.3
+BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-keyring-devel >= 0.8
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.10.6
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gtk+2-devel >= 2:2.10.10
+BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.16.1
+BuildRequires:	libgnomeui-devel >= 2.18.0
 BuildRequires:	libjpeg-devel
+BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	zlib-devel
-Requires(post,preun):	GConf2 >= 2.16.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
-Requires:	libgnomeui >= 2.16.1
+Requires(post,preun):	GConf2
+Requires:	libgnomeui >= 2.18.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
@@ -43,7 +44,6 @@ się z działającą sesją GNOME przy użyciu VNC.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -52,6 +52,8 @@ się z działającą sesją GNOME przy użyciu VNC.
 %{__autoconf}
 %{__automake}
 %configure \
+	--enable-gnome-keyring \
+	--enable-libnotify \
 	--disable-schemas-install \
 	LIBS="-lgnutls"
 %{__make}
