@@ -1,24 +1,24 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.18.0
+Version:	2.18.1
 Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	8378156f78289c2f0d3bd5c483101a40
+# Source0-md5:	caf0025b1ed95f03e29f9b40ae48b75b
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-keyring-devel >= 0.8
+BuildRequires:	gnome-common >= 2.18.0
+BuildRequires:	gnome-keyring-devel >= 0.8.1
 BuildRequires:	gnutls-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2:2.10.10
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.18.0
+BuildRequires:	libgnomeui-devel >= 2.18.1
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
@@ -29,7 +29,7 @@ BuildRequires:	zlib-devel
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.18.0
+Requires:	libgnomeui >= 2.18.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
