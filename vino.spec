@@ -1,12 +1,12 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.18.1
+Version:	2.19.90
 Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	caf0025b1ed95f03e29f9b40ae48b75b
+Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.19/%{name}-%{version}.tar.bz2
+# Source0-md5:	72de250a85a897f0c83ebfc42582f69d
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	ORBit2-devel >= 1:2.14.7
@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # stuff we don't want
-rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome/vino/vino-client.*
+rm -rf $RPM_BUILD_ROOT%{_datadir}/vino/vino-client.*
 
 %find_lang %{name}
 
@@ -88,8 +88,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libexecdir}
 %attr(755,root,root) %{_libexecdir}/vino-server
-%dir %{_datadir}/gnome/vino
-%{_datadir}/gnome/vino/*.glade
+%dir %{_datadir}/vino
+%{_datadir}/vino/*.glade
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_libdir}/bonobo/servers/*.server
