@@ -1,24 +1,24 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.20.0
+Version:	2.20.1
 Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/gnome/sources/vino/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	e9560ff2e135a5eec645593fc6c22150
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.20/%{name}-%{version}.tar.bz2
+# Source0-md5:	c45379bd177e0bc9a937a3388fc81650
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-common >= 2.18.0
-BuildRequires:	gnome-keyring-devel >= 0.8.1
+BuildRequires:	gnome-common >= 2.20.0
+BuildRequires:	gnome-keyring-devel >= 2.20.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.10.10
-BuildRequires:	intltool >= 0.35.5
+BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libgcrypt-devel >= 1.2.0
-BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.18.1
+BuildRequires:	libglade2-devel >= 1:2.6.2
+BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
@@ -29,7 +29,7 @@ BuildRequires:	zlib-devel
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.18.1
+Requires:	libgnomeui >= 2.20.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
