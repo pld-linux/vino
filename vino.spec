@@ -2,7 +2,7 @@ Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
 Version:	2.20.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.20/%{name}-%{version}.tar.bz2
@@ -30,6 +30,8 @@ Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
 Requires:	libgnomeui >= 2.20.0
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
@@ -44,6 +46,9 @@ się z działającą sesją GNOME przy użyciu VNC.
 
 %prep
 %setup -q
+
+sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+mv po/sr\@{Latn,latin}.po
 
 %build
 %{__intltoolize}
