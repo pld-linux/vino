@@ -10,6 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.20/%{name}-%{version}.tar
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	ORBit2-devel >= 1:2.14.7
+BuildRequires:	avahi-glib-devel >= 0.6.18
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-keyring-devel >= 2.20.0
@@ -57,8 +58,10 @@ mv po/sr\@{Latn,latin}.po
 %{__autoconf}
 %{__automake}
 %configure \
+	--enable-avahi \
 	--enable-gnome-keyring \
 	--enable-libnotify \
+	--enable-session-support \
 	--disable-schemas-install \
 	LIBS="-lgnutls"
 %{__make}
