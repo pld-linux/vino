@@ -1,25 +1,25 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.20.1
-Release:	4
+Version:	2.22.0
+Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	c45379bd177e0bc9a937a3388fc81650
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	c4bb4a18f264ad8dc21e7200911a0412
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.20.0
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	avahi-glib-devel >= 0.6.18
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-keyring-devel >= 2.20.0
+BuildRequires:	gnome-keyring-devel >= 2.22.0
 BuildRequires:	gnutls-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.20.0
+BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.4.3
 BuildRequires:	libtool
@@ -28,9 +28,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	zlib-devel
 Requires(post,postun):	gtk+2
-Requires(post,postun):	hicolor-icon-theme
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.20.0
+Requires:	libgnomeui >= 2.22.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -82,13 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %gconf_schema_install vino-server.schemas
-%update_icon_cache hicolor
 
 %preun
 %gconf_schema_install vino-server.schemas
-
-%postun
-%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -99,6 +94,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/vino
 %{_datadir}/vino/*.glade
 %{_desktopdir}/*.desktop
-%{_iconsdir}/hicolor/*/apps/*.png
 %{_libdir}/bonobo/servers/*.server
 %{_sysconfdir}/gconf/schemas/vino-server.schemas
