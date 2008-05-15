@@ -10,6 +10,8 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.22/%{name}-%{version}.tar
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	ORBit2-devel >= 1:2.14.7
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	avahi-glib-devel >= 0.6.18
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
@@ -47,22 +49,22 @@ się z działającą sesją GNOME przy użyciu VNC.
 %prep
 %setup -q
 
-sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
-mv po/sr\@{Latn,latin}.po
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv po/sr@{Latn,latin}.po
 
 %build
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-avahi \
 	--enable-gnome-keyring \
 	--enable-libnotify \
 	--enable-session-support \
-	--disable-schemas-install \
-	LIBS="-lgnutls"
+	--disable-schemas-install
 %{__make}
 
 %install
@@ -70,9 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-# stuff we don't want
-rm -rf $RPM_BUILD_ROOT%{_datadir}/vino/vino-client.*
 
 %find_lang %{name}
 
@@ -83,16 +82,17 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install vino-server.schemas
 
 %preun
-%gconf_schema_install vino-server.schemas
+%gconf_schema_uninstall vino-server.schemas
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README docs/TODO docs/remote-desktop.txt
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/vino-preferences
+%attr(755,root,root) %{_bindir}/vino-session
 %dir %{_libexecdir}
 %attr(755,root,root) %{_libexecdir}/vino-server
 %dir %{_datadir}/vino
 %{_datadir}/vino/*.glade
-%{_desktopdir}/*.desktop
-%{_libdir}/bonobo/servers/*.server
+%{_desktopdir}/vino-preferences.desktop
+%{_libdir}/bonobo/servers/GNOME_RemoteDesktop.server
 %{_sysconfdir}/gconf/schemas/vino-server.schemas
