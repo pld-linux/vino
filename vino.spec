@@ -1,12 +1,13 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.22.2
-Release:	2
+Version:	2.23.5
+Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	be507a80ec2c3cd5888060b81ff74f4e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.23/%{name}-%{version}.tar.bz2
+# Source0-md5:	0d8759df5e7c945fe032a63a8792b8da
+Patch0:		%{name}-bug-544277.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	ORBit2-devel >= 1:2.14.7
@@ -23,8 +24,9 @@ BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeui-devel >= 2.22.0
 BuildRequires:	libjpeg-devel
-BuildRequires:	libnotify-devel >= 0.4.3
+BuildRequires:	libnotify-devel >= 0.4.4
 BuildRequires:	libtool
+BuildRequires:	pango-devel
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -48,6 +50,7 @@ się z działającą sesją GNOME przy użyciu VNC.
 
 %prep
 %setup -q
+%patch0 -p1
 
 sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
 mv po/sr@{Latn,latin}.po
@@ -87,6 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README docs/TODO docs/remote-desktop.txt
+%attr(755,root,root) %{_bindir}/vino-passwd
 %attr(755,root,root) %{_bindir}/vino-preferences
 %attr(755,root,root) %{_bindir}/vino-session
 %dir %{_libexecdir}
