@@ -1,13 +1,12 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.23.5
+Version:	2.23.92
 Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.23/%{name}-%{version}.tar.bz2
-# Source0-md5:	0d8759df5e7c945fe032a63a8792b8da
-Patch0:		%{name}-bug-544277.patch
+# Source0-md5:	1920426523584fb2453004ee088fe28c
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	ORBit2-devel >= 1:2.14.7
@@ -50,10 +49,6 @@ się z działającą sesją GNOME przy użyciu VNC.
 
 %prep
 %setup -q
-%patch0 -p1
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 
 %build
 %{__intltoolize}
@@ -92,11 +87,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README docs/TODO docs/remote-desktop.txt
 %attr(755,root,root) %{_bindir}/vino-passwd
 %attr(755,root,root) %{_bindir}/vino-preferences
-%attr(755,root,root) %{_bindir}/vino-session
 %dir %{_libexecdir}
 %attr(755,root,root) %{_libexecdir}/vino-server
 %dir %{_datadir}/vino
 %{_datadir}/vino/*.glade
+%{_datadir}/gnome/autostart/vino-server.desktop
 %{_desktopdir}/vino-preferences.desktop
-%{_libdir}/bonobo/servers/GNOME_RemoteDesktop.server
 %{_sysconfdir}/gconf/schemas/vino-server.schemas
