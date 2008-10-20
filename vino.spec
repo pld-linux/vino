@@ -1,38 +1,39 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.24.0
+Version:	2.24.1
 Release:	1
 License:	GPL v2+
-Group:		Applications/Networking
+Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	c02bec87196e1655043c60870bfec7a7
+# Source0-md5:	b373292a7a5443d7fad1cce5eb07f37f
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.22.0
-BuildRequires:	ORBit2-devel >= 1:2.14.7
+BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	avahi-glib-devel >= 0.6.18
+BuildRequires:	dbus-devel >= 1.2.3
+BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-keyring-devel >= 2.22.0
+BuildRequires:	gnome-common >= 2.24.0
+BuildRequires:	gnome-keyring-devel >= 2.24.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	intltool >= 0.36.2
+BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.22.0
+BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.4.4
 BuildRequires:	libtool
-BuildRequires:	pango-devel
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	unique-devel >= 1.0.0
 BuildRequires:	zlib-devel
 Requires(post,postun):	gtk+2
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.22.0
+Requires:	libgnomeui >= 2.24.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -59,9 +60,9 @@ się z działającą sesją GNOME przy użyciu VNC.
 %{__automake}
 %configure \
 	--enable-avahi \
+	--enable-ipv6 \
 	--enable-gnome-keyring \
 	--enable-libnotify \
-	--enable-session-support \
 	--disable-schemas-install
 %{__make}
 
