@@ -1,14 +1,16 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.24.1
+Version:	2.26.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	b373292a7a5443d7fad1cce5eb07f37f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.26/%{name}-%{version}.tar.bz2
+# Source0-md5:	7a10464824d8446411b90c162d34401e
+Patch0:		%{name}-configure.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
+BuildRequires:	NetworkManager-devel >= 0.7
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	avahi-glib-devel >= 0.6.18
@@ -50,6 +52,7 @@ się z działającą sesją GNOME przy użyciu VNC.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -92,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/vino-server
 %dir %{_datadir}/vino
 %{_datadir}/vino/*.glade
-%{_datadir}/gnome/autostart/vino-server.desktop
+%{_datadir}/vino/webservices
+%{_sysconfdir}/xdg/autostart/vino-server.desktop
 %{_desktopdir}/vino-preferences.desktop
 %{_sysconfdir}/gconf/schemas/vino-server.schemas
