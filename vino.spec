@@ -31,7 +31,7 @@ BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	unique-devel >= 1.0.0
+BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	zlib-devel
 Requires(post,postun):	gtk+2
 Requires(post,preun):	GConf2
