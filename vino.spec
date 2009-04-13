@@ -1,15 +1,14 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.26.0
+Version:	2.26.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.26/%{name}-%{version}.tar.bz2
-# Source0-md5:	7a10464824d8446411b90c162d34401e
-Patch0:		%{name}-configure.patch
+# Source0-md5:	f6f5122b0644eb72b4cfaf202b3c8b1e
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.24.0
+BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	NetworkManager-devel >= 0.7
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -18,20 +17,21 @@ BuildRequires:	dbus-devel >= 1.2.3
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gnome-keyring-devel >= 2.24.0
+BuildRequires:	gnome-keyring-devel >= 2.26.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.4.4
+BuildRequires:	libsoup-devel >= 2.26.0
 BuildRequires:	libtool
+BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	zlib-devel
 Requires(post,postun):	gtk+2
 Requires(post,preun):	GConf2
@@ -52,7 +52,6 @@ się z działającą sesją GNOME przy użyciu VNC.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
