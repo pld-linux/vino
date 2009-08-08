@@ -1,0 +1,20 @@
+--- configure.in.orig	2009-05-18 17:59:03.000000000 +0200
++++ configure.in	2009-08-08 21:03:32.132933870 +0200
+@@ -171,13 +171,13 @@
+ 	      [  --disable-gnutls=[no/yes] don't build VNC over SSL support [default=no]],,
+ 	      enable_gnutls=yes)
+ if test "$enable_gnutls" = "yes"; then
+-  AM_PATH_LIBGNUTLS(1.0.0,
+-	            [AC_DEFINE(HAVE_GNUTLS, 1, [Defined if the GNU TLS library is present])],
+-                    AC_MSG_WARN([[
++  if ! $PKG_CONFIG --exists gnutls ; then
++    AC_MSG_ERROR([
+ ***
+ *** libgnutls was not found. You may want to get it from
+ *** ftp://ftp.gnutls.org/pub/gnutls/
+-]]))
++    ])
++  fi
+ fi
+ 
+ #
