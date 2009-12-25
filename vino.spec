@@ -1,12 +1,12 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.28.0
+Version:	2.28.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	de7874e503b0c4eaa48758620611c75c
+# Source0-md5:	5cf3c006f0d0b5e0daa3b10bc94f0e0d
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	NetworkManager-devel >= 0.7
@@ -22,8 +22,6 @@ BuildRequires:	gnutls-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
-BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.4.4
 BuildRequires:	libsoup-devel >= 2.26.0
@@ -32,10 +30,9 @@ BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	telepathy-glib-devel >= 0.7.31
 BuildRequires:	zlib-devel
-Requires(post,postun):	gtk+2
 Requires(post,preun):	GConf2
-Requires:	libgnomeui >= 2.24.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
