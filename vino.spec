@@ -17,11 +17,11 @@ BuildRequires:	dbus-devel >= 1.2.3
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gnome-keyring-devel >= 2.26.0
 BuildRequires:	gnutls-devel >= 1.0.0
 BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
+BuildRequires:	libgnome-keyring-devel >= 2.26.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.4.4
 BuildRequires:	libsoup-devel >= 2.26.0
