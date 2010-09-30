@@ -1,24 +1,24 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.28.2
+Version:	2.32.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	7b7fcd23925efb628da2d2f12d73b485
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.32/%{name}-%{version}.tar.bz2
+# Source0-md5:	e43a40dc3a1ad81ce6d417c237b68875
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	NetworkManager-devel >= 0.7
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.64
+BuildRequires:	automake >= 1:1.10
 BuildRequires:	avahi-glib-devel >= 0.6.18
 BuildRequires:	dbus-devel >= 1.2.3
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnutls-devel >= 1.0.0
-BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libgnome-keyring-devel >= 2.26.0
@@ -30,7 +30,7 @@ BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	telepathy-glib-devel >= 0.7.31
+BuildRequires:	telepathy-glib-devel >= 0.12.0
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	zlib-devel
@@ -67,7 +67,8 @@ rm -f po/en@shaw.po
 	--enable-ipv6 \
 	--enable-gnome-keyring \
 	--enable-libnotify \
-	--disable-schemas-install
+	--disable-schemas-install \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -97,7 +98,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/vino
 %{_datadir}/vino/vino-preferences.ui
 %{_datadir}/vino/vino-prompt.ui
-%{_datadir}/dbus-1/services/org.gnome.Vino.service
+%{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
+%{_datadir}/telepathy/clients/Vino.client
 %{_datadir}/vino/webservices
 %{_sysconfdir}/xdg/autostart/vino-server.desktop
 %{_desktopdir}/vino-preferences.desktop
