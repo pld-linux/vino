@@ -1,12 +1,12 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.99.0
+Version:	2.99.3
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.99/%{name}-%{version}.tar.bz2
-# Source0-md5:	2b55c8207478a6c48ea0aa06a2c01325
+# Source0-md5:	964d4ca7e73bcacb1cdd56a974eb3fe2
 URL:		http://www.gnome.org/
 BuildRequires:	NetworkManager-devel >= 0.7
 BuildRequires:	autoconf >= 2.64
@@ -29,7 +29,7 @@ BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-#BuildRequires:	telepathy-glib-devel >= 0.13.13
+BuildRequires:	telepathy-glib-devel >= 0.13.13
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libXdamage-devel
@@ -103,10 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/vino/vino-preferences.ui
 %{_datadir}/vino/vino-prompt.ui
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
-#%{_datadir}/telepathy/clients/Vino.client
+%{_datadir}/telepathy/clients/Vino.client
 %{_datadir}/vino/webservices
 %{_sysconfdir}/xdg/autostart/vino-server.desktop
 %{_desktopdir}/vino-preferences.desktop
-#%{_sysconfdir}/gconf/schemas/vino-server.schemas
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.gschema.xml
