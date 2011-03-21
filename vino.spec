@@ -1,43 +1,43 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	2.99.3
+Version:	2.99.4
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/2.99/%{name}-%{version}.tar.bz2
-# Source0-md5:	964d4ca7e73bcacb1cdd56a974eb3fe2
+# Source0-md5:	ccc0e6c74b82b3c3350d0f4751075cf2
 URL:		http://www.gnome.org/
 BuildRequires:	NetworkManager-devel >= 0.7
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.10
-BuildRequires:	avahi-glib-devel >= 0.6.18
 BuildRequires:	avahi-devel >= 0.6.18
+BuildRequires:	avahi-glib-devel >= 0.6.18
 BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnutls-devel >= 1.0.0
 BuildRequires:	gtk+3-devel >= 3.0.0
-BuildRequires:	glib2-devel >= 2.28.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libgnome-keyring-devel >= 2.26.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.7.0
 BuildRequires:	libsoup-devel >= 2.26.0
-BuildRequires:	libtool >= 2.2.6
-BuildRequires:	libunique-devel >= 1.0.0
+BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	telepathy-glib-devel >= 0.13.13
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
-BuildRequires:	xorg-lib-libXdamage-devel
-BuildRequires:	xorg-lib-libXfixes-devel
-BuildRequires:	xorg-lib-libXext-devel
-BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXdamage-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXfixes-devel
+BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	zlib-devel
+Requires(post,postun):	glib2 >= 1:2.26.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -55,9 +55,6 @@ się z działającą sesją GNOME przy użyciu VNC.
 %prep
 %setup -q
 
-sed -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
-
 %build
 %{__intltoolize}
 %{__libtoolize}
@@ -66,11 +63,7 @@ rm -f po/en@shaw.po
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-avahi \
 	--enable-ipv6 \
-	--enable-gnome-keyring \
-	--enable-libnotify \
-	--disable-telepathy \
 	--disable-schemas-compile \
 	--disable-silent-rules
 %{__make}
