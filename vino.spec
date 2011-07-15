@@ -1,12 +1,12 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	3.0.2
+Version:	3.0.3
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	e14a1ed6f871750bd496326ff4c8c749
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.0/%{name}-%{version}.tar.xz
+# Source0-md5:	4f3bcbf351ca4abf6337f3aef2d3559d
 URL:		http://www.gnome.org/
 BuildRequires:	NetworkManager-devel >= 0.7
 BuildRequires:	autoconf >= 2.64
@@ -28,6 +28,7 @@ BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.592
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	telepathy-glib-devel >= 0.13.13
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
@@ -36,6 +37,7 @@ BuildRequires:	xorg-lib-libXdamage-devel
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXfixes-devel
 BuildRequires:	xorg-lib-libXtst-devel
+BuildRequires:	xz
 BuildRequires:	zlib-devel
 Requires(post,postun):	glib2 >= 1:2.26.0
 # sr@Latn vs. sr@latin
@@ -100,5 +102,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/vino/webservices
 %{_sysconfdir}/xdg/autostart/vino-server.desktop
 %{_desktopdir}/vino-preferences.desktop
+%{_datadir}/GConf/gsettings/org.gnome.Vino.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.gschema.xml
