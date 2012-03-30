@@ -1,18 +1,19 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	3.2.2
+Version:	3.4.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.2/%{name}-%{version}.tar.xz
-# Source0-md5:	ed9e47261f352b04738e644ecc5301fb
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.4/%{name}-%{version}.tar.xz
+# Source0-md5:	e624ed07d96309dd658157ee2dfabc76
 URL:		http://www.gnome.org/
 BuildRequires:	NetworkManager-devel >= 0.7
 BuildRequires:	autoconf >= 2.64
-BuildRequires:	automake >= 1:1.10
+BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	avahi-devel >= 0.6.18
 BuildRequires:	avahi-glib-devel >= 0.6.18
+BuildRequires:	dbus-glib-devel
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
@@ -29,7 +30,7 @@ BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	telepathy-glib-devel >= 0.13.13
+BuildRequires:	telepathy-glib-devel >= 0.14.0
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
