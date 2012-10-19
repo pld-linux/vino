@@ -1,12 +1,12 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	3.4.2
+Version:	3.6.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	d397ec56c9a819b5893a5eae4f66b55d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.6/%{name}-%{version}.tar.xz
+# Source0-md5:	d0fcc8e721d2fb157ece5412b9cdd44d
 URL:		http://www.gnome.org/
 BuildRequires:	NetworkManager-devel >= 0.7
 BuildRequires:	autoconf >= 2.64
@@ -19,18 +19,18 @@ BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnutls-devel >= 2.2.0
 BuildRequires:	gtk+3-devel >= 3.0.0
-BuildRequires:	intltool >= 0.40.0
+BuildRequires:	intltool >= 0.50.0
 BuildRequires:	libgcrypt-devel >= 1.2.0
-BuildRequires:	libgnome-keyring-devel >= 2.26.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.7.0
+BuildRequires:	libsecret-devel
 BuildRequires:	libsoup-devel >= 2.26.0
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	telepathy-glib-devel >= 0.14.0
+BuildRequires:	telepathy-glib-devel >= 0.18.0
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libX11-devel
