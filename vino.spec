@@ -1,12 +1,12 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	3.8.1
+Version:	3.10.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	e8093aa198f2cdc743f46749c441f94c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.10/%{name}-%{version}.tar.xz
+# Source0-md5:	436d6b14a26064fc9016cc73f8a9d438
 Patch0:		autostart-mate.patch
 URL:		http://www.gnome.org/
 BuildRequires:	NetworkManager-devel >= 0.7
@@ -94,16 +94,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README docs/TODO docs/remote-desktop.txt
 %attr(755,root,root) %{_bindir}/vino-passwd
-%attr(755,root,root) %{_bindir}/vino-preferences
 %dir %{_libexecdir}
 %attr(755,root,root) %{_libexecdir}/vino-server
-%dir %{_datadir}/vino
-%{_datadir}/vino/vino-preferences.ui
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
 %{_datadir}/telepathy/clients/Vino.client
-%{_datadir}/vino/webservices
 %{_sysconfdir}/xdg/autostart/vino-server.desktop
-%{_desktopdir}/vino-preferences.desktop
 %{_datadir}/GConf/gsettings/org.gnome.Vino.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.gschema.xml
