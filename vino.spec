@@ -15,7 +15,7 @@ BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	avahi-devel >= 0.6.18
 BuildRequires:	avahi-glib-devel >= 0.6.18
 BuildRequires:	dbus-glib-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnutls-devel >= 2.2.0
