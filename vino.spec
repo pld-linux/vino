@@ -1,22 +1,20 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	3.12.0
-Release:	2
+Version:	3.18.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	24cc4b98eadfce724095f3db8af0dfe1
-Patch0:		autostart-mate.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	f9f4a343a3dca9457213fe6da83ceb2b
 URL:		http://www.gnome.org/
-BuildRequires:	NetworkManager-devel >= 0.7
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	avahi-devel >= 0.6.18
 BuildRequires:	avahi-glib-devel >= 0.6.18
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnutls-devel >= 2.2.0
 BuildRequires:	gtk+3-devel >= 3.0.0
@@ -25,10 +23,9 @@ BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libnotify-devel >= 0.7.0
 BuildRequires:	libsecret-devel
-BuildRequires:	libsoup-devel >= 2.26.0
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	perl-base
-BuildRequires:	pkgconfig
+BuildRequires:	pkgconfig >= 1:0.16
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	telepathy-glib-devel >= 0.18.0
@@ -41,7 +38,11 @@ BuildRequires:	xorg-lib-libXfixes-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xz
 BuildRequires:	zlib-devel
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.32.0
+Requires:	glib2 >= 1:2.32.0
+Requires:	gnutls >= 2.2.0
+Requires:	libgcrypt >= 1.2.0
+Requires:	telepathy-glib >= 0.18.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -58,7 +59,6 @@ się z działającą sesją GNOME przy użyciu VNC.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -96,8 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libexecdir}
 %attr(755,root,root) %{_libexecdir}/vino-server
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
-%{_datadir}/telepathy/clients/Vino.client
-%{_sysconfdir}/xdg/autostart/vino-server.desktop
-%{_datadir}/GConf/gsettings/org.gnome.Vino.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.gschema.xml
+%{_datadir}/telepathy/clients/Vino.client
+%{_desktopdir}/vino-server.desktop
