@@ -1,13 +1,13 @@
 Summary:	A remote desktop system for GNOME
 Summary(pl.UTF-8):	System zdalnego pulpitu dla GNOME
 Name:		vino
-Version:	3.18.1
-Release:	2
+Version:	3.22.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Networking
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.18/%{name}-%{version}.tar.xz
-# Source0-md5:	f9f4a343a3dca9457213fe6da83ceb2b
-URL:		http://www.gnome.org/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vino/3.22/%{name}-%{version}.tar.xz
+# Source0-md5:	7305feaa5cc9acb788d7a13389922012
+URL:		https://wiki.gnome.org/Projects/Vino
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	avahi-devel >= 0.6.18
@@ -95,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README docs/TODO docs/remote-desktop.txt
 %dir %{_libexecdir}
 %attr(755,root,root) %{_libexecdir}/vino-server
+%{systemduserunitdir}/vino-server.service
 %{_datadir}/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.Vino.gschema.xml
